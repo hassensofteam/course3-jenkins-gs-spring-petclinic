@@ -10,6 +10,6 @@ FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY target/spring-petclinic-3.1.0-SNAPSHOT.jar app.jar
+COPY target/spring-petclinic-3.1.0-SNAPSHOT.jar spring-petclinic-3.1.0-SNAPSHOT.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
