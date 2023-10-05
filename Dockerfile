@@ -5,7 +5,7 @@ FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
 
 # Copy the application JAR file into the container at /app
-COPY spring-petclinic-3.1.0-SNAPSHOT.jar /app/app.jar
+COPY target/spring-petclinic-3.1.0-SNAPSHOT.jar /app/app.jar
 
 # Expose the port that the application will run on
 EXPOSE 8080
