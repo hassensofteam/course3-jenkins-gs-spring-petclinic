@@ -4,12 +4,14 @@ pipeline {
         /* deleteDir() */
 
         stages {
+		/*
             stage('Checkout') {
                 steps {
                   bat "git clone --branch main https://github.com/hassensofteam/course3-jenkins-gs-spring-petclinic"
 
                 }
             }
+		*/
             stage('Build') {
                 steps {
                     dir('course3-jenkins-gs-spring-petclinic') {
