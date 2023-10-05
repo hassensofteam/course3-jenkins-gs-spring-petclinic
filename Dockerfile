@@ -1,3 +1,4 @@
+RUN ./gradlew bootJar --no-daemon
 # Use an official OpenJDK runtime as a parent image
 FROM adoptopenjdk:11-jre-hotspot
 
