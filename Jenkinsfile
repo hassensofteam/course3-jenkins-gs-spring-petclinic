@@ -14,9 +14,8 @@ pipeline {
 		*/
             stage('Build') {
                 steps {
-                    dir('course3-jenkins-gs-spring-petclinic') {
                         bat "mvn package"
-                    }
+                   
                 }
 
             }
