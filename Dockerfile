@@ -7,7 +7,7 @@ COPY . .
 RUN ./gradlew bootJar --no-daemon
 
 FROM  openjdk:17-jdk-slim
-VOLUME /tmp                   # Temporary location to run
-EXPOSE 8080                   # Provide port number
+VOLUME /tmp                  
+EXPOSE 8080                   
 ADD target/spring-petclinic-3.1.0-SNAPSHOT.jar spring-petclinic-3.1.0-SNAPSHOT.jar 
 ENTRYPOINT ["java","-jar","/spring-petclinic-3.1.0-SNAPSHOT.jar"] 
