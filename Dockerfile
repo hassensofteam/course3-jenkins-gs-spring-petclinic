@@ -1,6 +1,10 @@
+FROM ubuntu:latest AS build
+
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
 RUN ./gradlew bootJar --no-daemon
 # Use an official OpenJDK runtime as a parent image
-FROM adoptopenjdk:11-jre-hotspot
 
 # Set the working directory inside the container
 WORKDIR /app
