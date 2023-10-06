@@ -1,7 +1,7 @@
 #
 # Build stage
 #
-FROM maven:3.8.2-jdk-11 AS build
+FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
 COPY . .
 RUN mvn clean install
 
