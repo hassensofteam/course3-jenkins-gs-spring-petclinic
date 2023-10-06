@@ -1,15 +1,15 @@
-#
-# Build stage
-#
-FROM maven:3.8.7-eclipse-temurin-19
-COPY . .
-RUN mvn clean install
+FROM ubuntu:latest AS build
 
-#
-# Package stage
-#
-FROM openjdk:11-jdk-slim
-COPY --from=build /target/spring-petclinic-3.1.0-SNAPSHOT.jar demo.jar
-# ENV PORT=8080
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
+
+RUN ./gradlew bootJar --no-daemon
+
+FROM openjdk:17-jdk-slim
+
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","demo.jar"]
+
+COPY --from=build /target/spring-petclinic-3.1.0-SNAPSHOT.jarapp.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
