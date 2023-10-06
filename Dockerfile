@@ -1,7 +1,7 @@
 #
 # Build stage
 #
-FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
+FROM maven:3.8.7-eclipse-temurin-19
 COPY . .
 RUN mvn clean install
 
