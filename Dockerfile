@@ -10,6 +10,12 @@ FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build /build/libs/spring-petclinic-3.1.0-SNAPSHOT.jar app.jar
+# Set the working directory in the container
+WORKDIR /libs
+
+# Create a directory named 'app' inside the container
+RUN mkdir libs
+
+COPY --from=build /libs/spring-petclinic-3.1.0-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
